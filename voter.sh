@@ -5,6 +5,10 @@ while true; do
     start=$(date +%s)
 
     node myjs.js
+    node myjs.js
+    node myjs.js
+    node myjs.js
+    node myjs.js
     status=$?
 
     end=$(date +%s)
