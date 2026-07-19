@@ -18,7 +18,7 @@ while true; do
 
     echo "Iteration: $count | Exit: $status | Duration: ${elapsed}s"
 
-    if (( count >= 25 )); then
+    if (( count >= 5 )); then
         sleep 60
         count=0
     fi
