@@ -1,4 +1,6 @@
-const pollUrl =  'https://poll.fm/17221304/embed?fbclid=IwY2xjawTC819leHRuA2FlbQIxMABicmlkETFvdUhVa2RmazhBU0VCU3Juc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpT8h8FHERnj5I_ixAbiACVnYwwS8jUf-sM4-2xYSleN0d2aZ81CxvJFQ2en_aem_GgWpzb1RUPXIjqjSvim9pQ';
+//const pollUrl =  'https://poll.fm/17221304/embed?fbclid=IwY2xjawTC819leHRuA2FlbQIxMABicmlkETFvdUhVa2RmazhBU0VCU3Juc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpT8h8FHERnj5I_ixAbiACVnYwwS8jUf-sM4-2xYSleN0d2aZ81CxvJFQ2en_aem_GgWpzb1RUPXIjqjSvim9pQ';
+
+const pollUrl = 'https://billboardphilippines.com/music/features/p-pop-2026-favorite-release-poll/';
 let params = {
     p: 17221304,
     b: 1,
