@@ -3,12 +3,8 @@ count=0
 
 while true; do
     start=$(date +%s)
-
-    node myjs.js
-    node myjs.js
-    node myjs.js
-    node myjs.js
-    node myjs.js
+    node myjs.ts
+   
     status=$?
 
     end=$(date +%s)
@@ -16,10 +12,7 @@ while true; do
 
     ((count++))
 
-    echo "Iteration: $count | Exit: $status | Duration: ${elapsed}s"
-
-    if (( count >= 5 )); then
-        sleep 60
-        count=0
-    fi
+    echo "Sleeping for 30"
+    sleep 30
+    count=0
 done
