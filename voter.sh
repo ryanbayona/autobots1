@@ -3,7 +3,7 @@ count=0
 
 while true; do
     start=$(date +%s)
-    node myjs.ts
+    npx tsx myjs.ts
    
     status=$?
 
@@ -13,6 +13,6 @@ while true; do
     ((count++))
 
     echo "Sleeping for 30"
-    sleep 30
+    sleep 60
     count=0
 done
