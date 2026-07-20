@@ -268,17 +268,18 @@ for(let i=0;i<=20;i++){
 
   const pollUrl = 'https://billboardphilippines.com/music/features/p-pop-2026-favorite-release-poll/';
   let params = {
-      p: 17221304,
-      b: 1,
-      a: 75253678,
+      p: '17221304',
+      b: '1',
+      a: '75253678',
       o: '',
-      va: 16,
-      cookie: 0,  
+      va: '16',
+      cookie: '0',  
       tags: '17221304-src:poll-embed',
       n: '',
       url:pollUrl
   };
-  await fetch('https://poll.fm/n/4b1edb5ca6983f1f6be1f868d6e68fe6/17221304?'+(new Date).getTime(), {
+  const ts = new Date().getTime() + 1000;
+  await fetch('https://poll.fm/n/4b1edb5ca6983f1f6be1f868d6e68fe6/17221304?'+ ts, {
       dispatcher: proxyAgent,
     })
     .then(response => {
@@ -292,7 +293,31 @@ for(let i=0;i<=20;i++){
       let queryString = new URLSearchParams(params).toString();
       let voteUrl = 'https://polls.polldaddy.com/vote-js.php?' + queryString ;
 
-      fetch(voteUrl)
+      fetch(voteUrl,
+        {
+          headers: {
+              // Content negotiation
+              "Accept": "*/*",
+              "Accept-Language": "en-US,en;q=0.9",
+              "Accept-Encoding": "gzip, deflate, br, zstd", // Undici may manage decompression behavior
+
+              // Client identity
+              "User-Agent": "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36",
+
+              // Navigation context
+              "Referer": "https://billboardphilippines.com/",
+              "Dnt": "1",
+              "sec-ch-ua": '"Not;A=Brand";v="8", "Chromium";v="150", "Google Chrome";v="150"',
+              "sec-ch-ua-mobile": "?1",
+              "sec-ch-ua-platform": '"Android"',
+              "sec-fetch-dest": "script",
+              "sec-fetch-mode": "no-cors",
+              "sec-fetch-site": "cross-site",
+              "sec-fetch-storage-access": "active",
+            }
+        }
+
+      )
         .then(response => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.text();
